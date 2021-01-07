@@ -1,0 +1,423 @@
+---
+title: "Web scraping en R"
+subtitle: "`rvest`"
+author: "[Javier Fernández](https://jfernandez.netlify.app)"
+institute: "[Centro de Economía y Política Regional](https://cepr.uai.cl)"
+date: "07/01/2021"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "custom.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "macros.js"
+---
+
+background-image: url(https://media1.tenor.com/images/b276ea4cd677ee0957d063b4b200d5d2/tenor.gif?itemid=7921015)
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = TRUE,message = F,warning = F)
+```
+
+---
+
+# Hoy veremos...
+
+- Web Scraping
+- Web Scraping en R:
+  - `rvest`
+- Aplicación
+---
+class: inverse, center, middle
+
+# Web ... qué?
+
+---
+
+# Web scraping
+
+<br>
+<br>
+<br>
+
+- .bigl[Web]
+
+<br>
+<br>
+<br>
+
+
+
+- .bigl[Scraping] 
+
+<br>
+<br>
+<br>
+
+
+
+
+---
+# Web scraping
+
+<br>
+<br>
+<br>
+
+- .bigl[Web] .big[`<-`] .bigl[.red[Web]]
+
+<br>
+<br>
+<br>
+
+
+
+- .bigl[Scraping]  
+
+<br>
+<br>
+<br>
+
+
+
+---
+# Web scraping
+
+<br>
+<br>
+<br>
+
+- .bigl[Web] .big[`<-`] .bigl[.red[Web]]
+
+<br>
+<br>
+<br>
+
+
+
+- .bigl[Scraping] .big[`<-`] .bigl[.red[Raspando]]
+
+<br>
+<br>
+<br>
+
+--
+
+
+
+Proceso automatizado de extracción de datos de la web.
+
+---
+
+
+# Web scraping
+
+.center[![Fuente: www.grid.cl](https://www.grid.cl/blog/wp-content/uploads/2019/03/001-efficient-web-scraping.png)]
+
+
+.footnote[Source:[grid.cl](https://www.grid.cl/blog/el-web-scraping-que-es-aplicaciones-y-consecuencias/)]
+
+---
+class: inverse, center, middle
+
+# ¿Cómo se ve una página web?
+
+---
+background-image:url(imagenes/webcepr.JPG)
+background-size: 80% 80%
+
+---
+
+class: inverse, center, middle
+
+# ¿Cómo es una página web?
+
+---
+
+background-image:url(imagenes/code.JPG)
+background-size: 80% 80%
+
+---
+
+# Web scraping en R
+
+
+- Existen en R varias estrategias para realizar este proceso
+
+--
+
+  - `RCurl` y `XML`
+
+--
+
+  - `rvest`
+  
+--
+  
+  - `RSelenium`
+
+---
+
+background-image:url(imagenes/rvest.png)
+background-size: 20% 30%
+background-position: center bottom
+# `rvest` 
+
+--
+
+- Forma parte del set de herramientas de tydiverse 
+
+--
+
+- Es bastante sencillo de utilizar
+
+--
+
+- Diseñado para trabajar con nuestro querido `%>%`
+
+--
+
+- Inspirado en librerias como "beautiful soup"
+
+---
+background-image:url(imagenes/rvest.png)
+background-size: 20% 30%
+background-position: center bottom
+# `rvest`
+
+Contiene varias funciones, entre las que destacan:
+
+--
+
+- `read_html()`: Nos permite "ingresar" a una página web.
+
+--
+- `html_element()`: Selecciona la parte/s del documento del que extraeremos información
+
+--
+
+- `html_text2()`: Permite extraer información de un texto
+
+--
+
+- `html_attr()`: Permite extraer información de un atributo
+
+--
+
+- `html_table()`: Extrae una tabla y la convierte en un data.frame
+
+--
+
+Combinando algunas de estas funciones y los `%>%`, podremos extraer datos de un página web.
+
+---
+class: inverse, center, middle
+
+# Cocinando con Javier!
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+--
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+]
+
+---
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear.
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear
+
+- Revisar la política de privacidad de datos del sitio &#128520;
+
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear
+
+- Revisar la política de privacidad de datos del sitio &#128520;
+
+- Revisar el tipo de elemento que queremos scrapear (opcional en un comienzo)
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear
+
+- Revisar la política de privacidad de datos del sitio &#128520;
+
+- Revisar el tipo de elemento que queremos scrapear (opcional en un comienzo)
+
+- Escribir la línea de código correspondiente en R
+
+]
+
+---
+
+
+class: inverse, middle, center
+
+# Muchas gracias!
+
+---
+
+# Práctica en la cocina
+
+- Realizaremos un trabajo de datos aplicado con dos páginas distintas:
+  - [Transparencia de Municipalidad Valparaíso](https://www.portaltransparencia.cl/PortalPdT/pdtta/-/ta/MU332)
+  - [IMDb - The Mandalorian](https://www.imdb.com/title/tt8111088/?ref_=nv_sr_srsg_0)
+
+--
+
+- El objetivo es que puedan utilizar `R` y `rvest` para hacer webscraping.
+
+--
+
+- A la cocina!
+
+--
+
+<div class="rima">
+  <div class="cima">
+    <img src="imagenes/grogu.gif" alt="Snow" style="width:120%">
+  </div>
+  <div class="cima">
+    <img src="https://media.tenor.com/images/3f06cfcac4f1a404b8c616dbbeb9227a/tenor.gif" alt="Forest" style="width:120%">
+  </div>
+</div>
+
+
