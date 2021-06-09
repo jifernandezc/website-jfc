@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Monopsonistic labor markets and workplace harassment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Javier Fernández" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <script src="libs/jquery-3.5.0/jquery.min.js"></script>
+    <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-8.1.2/highcharts.js"></script>
+    <script src="libs/highcharts-8.1.2/highcharts-3d.js"></script>
+    <script src="libs/highcharts-8.1.2/highcharts-more.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/stock.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/map.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/annotations.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/data.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/drilldown.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/item-series.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/exporting.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/export-data.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/funnel.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/heatmap.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/treemap.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/sankey.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/organization.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/sunburst.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/vector.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/xrange.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/tilemap.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/venn.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/gantt.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/timeline.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/bullet.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/lollipop.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/series-label.js"></script>
+    <script src="libs/highcharts-8.1.2/plugins/motion.js"></script>
+    <script src="libs/highcharts-8.1.2/custom/reset.js"></script>
+    <script src="libs/highcharts-8.1.2/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.8.2/highchart.js"></script>
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Monopsonistic labor markets and workplace harassment
+## Project Presentation
+### <a href="https://jfernandez.netlify.app">Javier Fernández</a>
+### <a href="https://cepr.uai.cl/ayudante/javier-fernandez/">Centro de Economía y Política Regional</a>
+### 15/06/2021
+
+---
+
+
+
+
+## About me 
+
+
+- BSc. Economics &amp; MSc. Economics - Universidad Adolfo Ibañez
+
+--
+
+- Administrative Staff - Center of Economics and Regional Policy
+	- IT support
+	- Support and guidance of internship students, junior RA, and thesis students
+	- Activities Organization (Workshop- Seminars - Dissemination activities)
+	- Teaching in Programming Schools
+
+--
+	
+- Part-time Lecturer - Business School, Adolfo Ibañez University
+	- Microeconomics I &amp; II (3 SEM)
+	- Introduction to Data Science in R (3 SEM)
+
+--
+
+- RA -  Center of Economics and Regional Policy 
+	- Input-output approach to study regional effects in key industries in Chile
+	- The effect of Monopsony Market power of the firms in Local labor markets in Chile
+	- Gender Wage Gap and the effect in the growth of Chile
+---
+
+class: inverse, center, middle
+
+# Master dissertation - Local governments efficiency providing education: The Chilean case
+
+---
+
+## Motivation
+
+<div id="htmlwidget-3de960eb9d13ab6c28c0" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3de960eb9d13ab6c28c0">{"x":{"visdat":{"402c325151":["function () ","plotlyVisDat"]},"cur_data":"402c325151","attrs":{"402c325151":{"x":{},"y":{},"box":{"visible":true},"meanline":{"visible":true},"split":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"violin"}},"layout":{"width":800,"height":600,"margin":{"b":100,"l":50,"t":100,"r":50,"pad":4},"autosize":false,"title":"Fig 1. Distribution of the SIMCE scores by municipalities, all years average","xaxis":{"domain":[0,1],"automargin":true,"title":"Region"},"yaxis":{"domain":[0,1],"automargin":true,"title":"SIMCE score 4th grade","zeroline":false},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"fillcolor":"rgba(31,119,180,0.5)","x":[1,1,1,1,1,1,1],"y":[231.769360833333,217.031174545455,228.681679166667,248.237184166667,223.072733333333,221.209674166667,240.4129625],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"1","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(255,127,14,0.5)","x":[2,2,2,2,2,2,2,2],"y":[240.247718333333,237.727725833333,239.188489166667,233.948421666667,250.646381666667,237.51802125,251.109258333333,241.589065],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"2","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(44,160,44,0.5)","x":[3,3,3,3,3,3,3,3,3],"y":[240.84155,227.556446666667,221.638356666667,243.069864166667,251.024854166667,246.277511666667,245.625163333333,242.2771075,236.908514166667],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"3","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(214,39,40,0.5)","x":[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],"y":[246.840882727273,241.212084166667,242.086929166667,240.242070833333,242.571410833333,239.817411666667,241.839835833333,254.381574166667,238.474774166667,246.2897325,243.676948333333,258.875535833333,248.532579166667,236.228525833333,248.207201666667],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"4","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"line":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(148,103,189,0.5)","x":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"y":[230.328183333333,244.440694166667,235.758376666667,249.656554166667,233.393615833333,241.435990833333,239.868270833333,225.0773,250.420638181818,246.015688333333,243.749528333333,236.662465,247.798451666667,249.456219166667,269.884565833333,241.825515833333,228.660109166667,241.6152075,244.21091,231.055385833333,236.07605,228.807910833333,238.751678181818,241.886625833333,246.130686363636,260.522700833333,236.445405833333,238.113775,238.584745833333,248.973448333333,234.201752727273,236.271296666667,237.403153333333,237.561604166667,242.888473333333,245.006801666667],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"5","marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"line":{"color":"rgba(148,103,189,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(140,86,75,0.5)","x":[6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6],"y":[245.51203,239.01632,250.297303333333,248.9273,245.965749166667,226.40533,238.301334166667,234.590838333333,239.504350833333,231.177745,248.175828333333,238.413658333333,253.014303636364,245.396775833333,247.0477725,240.657079090909,246.356263333333,252.250386666667,258.55334,249.083719166667,266.251360833333,256.249914166667,249.391135,244.218136363636,259.242889166667,247.469044166667,255.9429,243.332968333333,249.2549575,254.8508675,247.9655725,270.055579166667,246.7315675],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"6","marker":{"color":"rgba(140,86,75,1)","line":{"color":"rgba(140,86,75,1)"}},"line":{"color":"rgba(140,86,75,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(227,119,194,0.5)","x":[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],"y":[249.404299166667,249.3110325,259.829639166667,253.000150833333,242.53328,246.587061666667,249.83723,241.351733333333,248.145754166667,247.308084166667,245.009724166667,240.047081666667,255.597539090909,248.227351666667,270.298072727273,273.7103,244.495320833333,250.886801666667,269.520675833333,255.072649166667,260.952573333333,250.606760833333,254.412750833333,247.669443636364,249.8838125,246.882434166667,249.957440833333,240.794884166667,239.7349875,249.801815],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"7","marker":{"color":"rgba(227,119,194,1)","line":{"color":"rgba(227,119,194,1)"}},"line":{"color":"rgba(227,119,194,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(127,127,127,0.5)","x":[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8],"y":[251.128423333333,242.3859175,236.9997975,248.045055,245.250549166667,247.042012727273,252.835524166667,232.273241666667,240.973643333333,247.874561666667,265.692526666667,245.537846363636,256.349211666667,248.932256666667,248.152678333333,248.8282025,259.029158333333,247.068913333333,252.217598,246.77576,248.72965,245.796531666667,264.316321666667,245.151548333333,270.458586666667,256.983264545455,246.910101666667,245.369198333333,248.456548181818,240.503115833333,241.456920833333,241.85315,215.044482727273,247.160461666667,245.788818333333,249.311000833333,255.204545,249.920821666667,238.4229475,252.371764166667,251.578898333333,252.109025454545,241.3412375,240.465796666667,248.25432,258.9121725,245.356515833333,246.39377,253.073106666667,257.100059166667,239.290529166667,266.951179166667,255.2712525,244.166255833333],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"8","marker":{"color":"rgba(127,127,127,1)","line":{"color":"rgba(127,127,127,1)"}},"line":{"color":"rgba(127,127,127,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(188,189,34,0.5)","x":[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],"y":[253.157950833333,249.335994166667,245.0851225,255.263558333333,237.605085833333,235.91402,250.38809,249.132626666667,246.4748525,244.6069025,245.244961666667,243.15489,251.669154166667,241.657874166667,257.795611666667,229.18864,247.237705833333,256.354583333333,257.618755833333,250.395593333333,219.745687272727,256.061185833333,247.077640833333,246.565753333333,228.9430425,238.709029166667,252.8096175,242.899255833333,250.351884166667,232.6174925,254.579158333333,241.005910833333],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"9","marker":{"color":"rgba(188,189,34,1)","line":{"color":"rgba(188,189,34,1)"}},"line":{"color":"rgba(188,189,34,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(23,190,207,0.5)","x":[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"y":[251.055076666667,248.796005833333,242.321093636364,246.76297,237.1468425,251.294744166667,247.743786666667,258.3889775,241.4659375,261.973935833333,255.0961725,245.856381666667,260.574019166667,249.685316666667,265.466345,258.856620833333,243.875971111111,262.489079166667,258.073726666667,261.954849166667,239.692186666667,242.7441675,242.985648181818,242.347169166667,233.290436666667,240.466589166667,246.242396666667,253.9164,244.0526175,249.716004166667],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"10","marker":{"color":"rgba(23,190,207,1)","line":{"color":"rgba(23,190,207,1)"}},"line":{"color":"rgba(23,190,207,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(31,119,180,0.5)","x":[11,11,11,11,11,11,11,11,11,11],"y":[246.874639166667,255.236871111111,245.466005,256.441665,253.744808181818,253.843890833333,249.75413,274.102803636364,254.943919,247.692609166667],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"11","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(255,127,14,0.5)","x":[12,12,12,12,12,12,12],"y":[248.312945,261.724004444445,272.7594575,265.7838875,250.2057775,274.903959090909,245.503869166667],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"12","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(44,160,44,0.5)","x":[13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13],"y":[254.6854675,234.177211666667,228.353290909091,240.7288225,225.968980833333,244.899288333333,230.651199166667,250.321176666667,233.402018333333,238.363221666667,236.836400833333,222.8534675,244.1008125,277.602023333333,238.14451,227.897965833333,235.157351818182,241.608666666667,243.9707525,277.112625,233.717843333333,229.627969166667,281.152558333333,250.1132,234.362266666667,237.978849090909,234.419515833333,243.943943333333,242.985017272727,250.141753333333,226.056135833333,293.116315,241.575863333333,250.849673333333,233.445442727273,249.289826666667,235.5605475,237.010405,230.095336363636,229.595066666667,241.502315,239.799515,238.411318333333,243.405059090909,242.547114166667,243.413103333333,252.8559825,246.959745,239.030098333333,238.252865454545,227.830258333333,247.0437575],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"13","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(214,39,40,0.5)","x":[14,14,14,14,14,14,14,14,14,14,14,14],"y":[251.42838,240.706136666667,246.790338333333,250.012219166667,243.511597272727,233.822953333333,255.0672875,246.63958,254.85479,253.718984166667,255.409546666667,251.524783333333],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"14","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"line":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(148,103,189,0.5)","x":[15,15,15],"y":[245.6411375,234.080969166667,194.13474125],"box":{"visible":true},"meanline":{"visible":true},"type":"violin","name":"15","marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"line":{"color":"rgba(148,103,189,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+---
+## Research Questions
+
+
+.llittle[
+- Which is the proper method to estimate the efficiency in the educational provision of local governments in Chile?]
+
+--
+
+.mbig[
+- Which are the factors that determine the levels of efficiency
+in educational spending of the local governments in Chile?
+
+]
+---
+## Why study the efficiency? 
+
+
+.mmbig[
+- Add economic structure about the production process
+]
+--
+.mmbig[
+- Allow comparing between DMUs which are in differents start points
+]
+--
+
+.mmbig[
+- Add economic intuition 
+]
+
+---
+## Data Envelopment Analysis (DEA)
+
+
+.mmbig[
+- Non-parametrical method to estimate the efficiency
+]
+--
+.mmbig[
+- Allow us to study the efficiency from an empirical perspective
+]
+--
+.mmbig[
+- Resolution of linear optimization
+]
+--
+.mmbig[
+- Few assumptions about the production process
+]
+
+
+---
+## DEA method
+
+
+<div id="htmlwidget-e9602098a9f12cd0d293" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e9602098a9f12cd0d293">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":"Fig 2. Example: DEA types of frontier"},"yAxis":{"title":{"text":"Output"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"name":"DEA - CRS","data":[{"Input":0,"Output":0,"frontier":"DEA - CRS","x":0,"y":0},{"Input":6,"Output":6,"frontier":"DEA - CRS","x":6,"y":6},{"Input":8,"Output":8,"frontier":"DEA - CRS","x":8,"y":8}],"type":"line"},{"name":"DEA - VRS","data":[{"Input":2,"Output":0,"frontier":"DEA - VRS","x":2,"y":0},{"Input":2,"Output":1,"frontier":"DEA - VRS","x":2,"y":1},{"Input":3,"Output":4,"frontier":"DEA - VRS","x":3,"y":4},{"Input":4.5,"Output":4.5,"frontier":"DEA - VRS","x":4.5,"y":4.5},{"Input":6,"Output":6,"frontier":"DEA - VRS","x":6,"y":6},{"Input":8,"Output":6,"frontier":"DEA - VRS","x":8,"y":6}],"type":"line"},{"name":"FDH","data":[{"Input":2,"Output":0,"frontier":"FDH","x":2,"y":0},{"Input":2,"Output":1,"frontier":"FDH","x":2,"y":1},{"Input":3,"Output":1,"frontier":"FDH","x":3,"y":1},{"Input":3,"Output":4,"frontier":"FDH","x":3,"y":4},{"Input":4.5,"Output":4,"frontier":"FDH","x":4.5,"y":4},{"Input":4.5,"Output":4.5,"frontier":"FDH","x":4.5,"y":4.5},{"Input":6,"Output":4.5,"frontier":"FDH","x":6,"y":4.5},{"Input":6,"Output":6,"frontier":"FDH","x":6,"y":6},{"Input":8,"Output":6,"frontier":"FDH","x":8,"y":6}],"type":"line"},{"group":"group","data":[{"Input":4,"Output":2,"x":4,"y":2},{"Input":5,"Output":3,"x":5,"y":3},{"Input":7,"Output":1,"x":7,"y":1},{"Input":4.5,"Output":2,"x":4.5,"y":2},{"Input":6,"Output":5,"x":6,"y":5}],"type":"scatter","name":"Points"}],"xAxis":{"type":"linear","title":{"text":"Input"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## DEA specification
+
+
+.mmbig[
+- Inputs
+	- Expenditure in educational staff per enrolled student 
+	- Expenditure in the logistic and infrastructure in the educational area per student
+]
+--
+.mmbig[
+- Output
+	- Average score of the SIMCE test of fourth-degree students of public education (Standardized Test)
+]
+---
+## Second Stage efficiency
+
+- Following Simar &amp; Wilson (2011) and we can study the influences of "environment" factors external to the local governments' control
+
+--
+`\begin{equation}
+\theta _{i}= \beta _{0}+ \sum _{l=1}^{L} \beta _{l}Z_{li}+ \delta _{i}
+\end{equation}`
+--
+
+The vector Z is composed of variables in the following three dimensions:
+
+- Socio-demographic variables: Average income, population categories, and percentage of the rural enrolled student
+
+- Education context variables: Percentage of teachers of public schools with high performance in the teacher evaluation, percentage of absence to SIMCE test, percentage of class attendance, and percentage of enrolled students in the private schools with a voucher system
+
+- Spatial variables: Commutation inflows and outflow by school attendance reasons and connectivity index
+
+---
+## Data
+
+- Unbalanced Panel data at municipal level from 2005 to 2016
+
+--
+
+- 342 Municipalities were included with 96% of coverage in the years available in the sample
+
+--
+
+- The data was extracted from different sources of the Chilean government: 
+	- National system of municipal information (SINIM)
+	- Ministry of education
+		- Students' Registry of Chile
+		-  Teachers Evaluation
+		-  SIMCE results
+---
+
+## Main results
+
+- The average local government efficiency shows temporal stability
+
+--
+
+- The efficiency is more stable in the municipalities with a lower efficiency level
+
+--
+
+- There is a regional/spatial pattern in the efficiency
+
+--
+
+- There are positive effects for economies of a scale, which could be up to 26% on average.
+
+--
+
+- The low connectivity could explain from 2.4% to 36.7% of the inefficiency for the ten municipalities with the lowest efficiencies.
+
+---
+
+class: inverse, center, middle
+
+# PhD Project: Monopsonistic labor markets and workplace harassment
+
+---
+## Introduction
+
+- The vision of the job has changed from workers' and firms' perspectives. 
+
+--
+
+- Workplace harassment may have effects on workers health (Pryor &amp; Louise, 2003; Rospenda et al., 2005 ), productivity, and quality of work (Weziak-Białowolska et al., 2020) 
+
+--
+
+- This project aims to:
+	- Understand the causes of workplace harassment and its relation with labor market condition
+	- Comprehend how and how much the monopsony power of the firm affects the immigrant workers
+	- Generate a tool to predict workplace harassment in firms
+
+---
+
+## Data
+
+The information comes from three different sources:
+
+--
+
+- The administrative data of the unemployment insurance (AFC)
+	- Monthly information about almost all formal employees in Chile from 2012 to 2021
+	- Variables such as income, education, age, sex, city of residence, nationality, and firm
+	- Needed to calculate the firm's monopsony power
+
+--
+	
+- The firm's infringement records provided by the ministry of labor (DT)
+	- It will be used to build the measure of workplace harassment
+	- Information on all reported firms' infringement against employees from 2016 to 2021
+	- The reported infringements range from unpaid pension contributions to anti-union practices
+	
+--
+
+- Information related to economic aspects of the firms from the Tax Revenue Office (SII)
+  - Complete economic information about the market environment of firms, such as the size of the market and level of competition from 2005 to 2019 
+
+
+
+---
+class: inverse, center, middle
+
+### Chapter 1: Exploration of the causes of workplace harassment: the labor market effects
+
+---
+
+## Motivation
+
+- Previous literature has studied the causes of workplace harassment from human resources perspective (Appelbaum et al.,2012)
+
+--
+
+- Hersch (2011;2018) shows that workplace harassment can lead to wage differentials and other economic impacts
+
+--
+
+- Up to now, the economic literature has only focused on the consequences of workplace harassment without considering the effect of labor market structure and conditions
+
+--
+
+- Manning (2020) indicates that labor markets have important
+elements of monopsony power, and it should be incorporated when modeling the dynamics in the relationships between employer and employees
+
+--
+
+- Webber (2016) shows how differences in monopsony power of the firms between men and women are a powerful explanation of the gender pay gap among them 
+
+--
+
+- Therefore, It is intuitive to think that the firm's monopsony power is also related to the occurrence and persistence of workplace harassment
+
+--
+
+- The main contribution of this research is to explore the causes of workplace harassment. In particular, the role of monopsony market power at the firm level 
+
+
+
+---
+
+## Model
+
+- Following the approach used by Webber (2015), it is possible to estimate E, a measure of labor-supply elasticity (firm's monopsony market power) faced by each firm in each period using job spells of workers in a firm and data about its duration, wages, and classical control variables.  Given this measure, the following model at the firm level is proposed:
+
+--
+
+`\begin{equation}
+    WorkplaceHarassment_{jt}=\beta \varepsilon_{jt}+\gamma X_{jt}+\delta Y_{j}+u_{jt}
+\end{equation}`
+
+--
+
+
+- Where:
+  - The dependent variable is the ratio between the number of cases of workplace harassment and the total number of employees in firm j in period t 
+  - `\(\epsilon_j\)` is the measure of monopsony power of the firm
+  - `\(X_{jt}\)` is a vector of firm characteristics that may vary in time 
+  - `\(Y_j\)` is a fixed-effects vector for firms 
+  - `\(U_{jt}\)` is the error term
+
+
+
+---
+
+class: inverse, center, middle
+
+### Chapter 2: The effects of monopsonistic labor markets on the workplace harassment of immigrant workers
+
+---
+
+## Motivation
+
+- In recent years, immigration to Chile has increased almost three times and has been driven by people with lower per capita income levels (Aldunate et al., 2019)
+
+--
+
+- The restrictive immigrant policies and the characteristics of this migration inflows promotes discrimination in some dimension of the labor markets (Feline &amp; Vera, 2021)
+
+--
+
+- The literature has studied wage discrimination on foreigners (Hirsch &amp; Jahn, 2015), the effect of immigration on the native wage structure(Manning, 2020)
+
+--
+
+- This work intends to make two contributions to the literature:
+	- Study the relative labor-supply elasticity of immigrants with respect to the native workers in Chile
+	- Explore the effects of the firms' monopsony power on outcomes related to welfare and health at work
+	
+	
+---
+
+## Model
+
+- We replicate the econometric strategy described in chapter one for each, but splitting the data into two samples: immigrant and native workers
+
+--
+
+`\begin{equation}
+    W_{jt}=\beta \varepsilon_{jt}+\gamma X_{jt}+\delta Y_{j}+u_{jt}
+\end{equation}`
+
+
+--
+
+- Where
+  - `\(W_{jt}\)` is the rate of injuries and accidents, sick leave rates, and workplace harassment ratio presented in chapter one within the firms 
+  - `\(X_{jt}\)` and `\(Y_{j}\)` are the same introduced in chapter one but are differentiated by natives and immigrant workers
+  - `\(U_{jt}\)` is the error term
+  
+--
+
+- Moreover, to measure the importance of discrimination as a driver of the differential working conditions between native and immigrant workers, I will apply the decomposition proposed by Oaxaca(1973)
+
+---
+
+class: inverse, center, middle
+
+### Chapter 3: The workplace harassment predictive risk model
+
+---
+
+## Motivation
+
+- Predictive risk models (PRM) are powerful tools that support institutions' decision-making processes
+
+--
+
+- Many studies discussing the benefits and limitations of PRM (Panattoni et al., 2011; Caplan et al., 2011, Walsh et al., 2020) 
+
+--
+
+- An emblematic case is the Allegheny Family Screening Tool (Vaithianathan et al., 2017)
+
+--
+
+- The firms with high monopsony market power pay less than those with low levels of it. Therefore, probably in the firms with high monopsony market power, the workers denounce less
+
+--
+
+- This work's contribution is to propose a PRM allowing to measure the risk of workplace harassment. This will improve the supervision mechanism of firms and public institutions
+
+---
+
+### Methodology
+
+Following the procedure proposed by Vaithianathan et al.(2017), we have to apply these two steps:
+
+- Variable Selection
+  - Estimate probit with an occurrence of workplace harassment as a dependent variable and independent variables all available in the data
+  - Cutoff criterion 1: 1.6 t-ratio
+  - Estimate probit in a random sample of 30%  with pre-selected variables. Repeat the process 50 times
+  - Cutoff criterion 2: 2.2 t-ratio in all repetitions
+
+--
+
+- Evaluate Model Performance
+	- Test the predictive power of the model
+	- Split the sample in 70% to train and 30% to test the model
+	- Evaluate this procedure in ordinary probit and boosted probit
+	- Re-evaluate with another cross-validation method: k-folds
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
