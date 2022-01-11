@@ -43,6 +43,6 @@ user_groups:
 - Principal Investigators
 ---
 
-I am a research assistant and administrative staff at the Centre of Economics and Regional Policy of the Adolfo Ibáñez University. My research interests include studying labor markets and their outputs at the individual and local level and predictive models for public policies. My current work is related to gender wage gaps in Latin America. Moreover, I am design and programming `mRio`, an R package to build and analyze multi-regionalized input-output tables.
+I am a research assistant and administrative staff at the Centre of Economics and Regional Policy of the Adolfo Ibáñez University. My research interests include studying labor markets and their outputs at the individual and local levels, and predictive models for public policies. My current work is related to the effects of the gender gaps and child penalties in the quality of employment for women in Chile. Moreover, I am design and programming `mRio`, an R package to build and analyze multi-regionalized input-output tables.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_JFC.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_JFC_12_2021.pdf" "newtab" >}}CV{{< /staticref >}}.
