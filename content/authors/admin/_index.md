@@ -38,4 +38,4 @@ user_groups: Principal Investigators
 
 I'm working as a Researcher at the Center of Empirical Research in Business of the Diego Portales University and as a Consultant in Regional Data and Report Designs for the Andrés Bello University. My research interests include labor markets and their outputs at the individual and local levels, the effects of spatially blind policies in Chile, and predictive models for public policies. My current work is related to the effects of the gender gaps and child penalties in the quality of employment for women in Chile.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_JFC_12_2021.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_JFC_07_2022.pdf" "newtab" >}}CV{{< /staticref >}}.
