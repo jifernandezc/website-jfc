@@ -25,9 +25,31 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   You can begin a multiline `description` using YAML's `|-`.
 experience:
-- company: Centre of Economics and Regional Policy - Adolfo Ibáñez University
-  company_url: "cepr.uai.cl"
+- company: Center of Empirical Research in Business - Diego Portales University
+  company_url: "https://cien.udp.cl"
   date_end: ""
+  date_start: "2022-06-01"
+  description: |-
+#    Responsibilities include:
+#    * Analysing
+#    * Modelling
+#    * Deploying
+  location: Santiago, Chile
+  title: Researcher
+- company: Andrés Bello University
+  company_url: "https://cien.udp.cl"
+  date_end: ""
+  date_start: "2022-07-01"
+  description: |-
+#    Responsibilities include:
+#    * Analysing
+#    * Modelling
+#    * Deploying
+  location: Viña del Mar, Chile
+  title: Consultant
+- company: Center of Economics and Regional Policy - Adolfo Ibáñez University
+  company_url: "https://cepr.uai.cl"
+  date_end: "2022-06-01"
   date_start: "2018-03-01"
   description: |-
 #    Responsibilities include:
@@ -37,7 +59,7 @@ experience:
   location: Viña del Mar, Chile
   title: Research Assistant and Administrative Staff
 - company: Adolfo Ibáñez University 
-  company_url: "www.uai.cl"
+  company_url: "https://www.uai.cl/"
   date_end: "2020-12-15"
   date_start: "2018-08-01"
   description: |-

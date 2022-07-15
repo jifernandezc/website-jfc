@@ -27,6 +27,12 @@ subtitle = ""
   description = ""  
 
 [[feature]]
+  icon = "map"
+  icon_pack = "fas"
+  name = "GIS"
+  description = ""
+
+[[feature]]
   icon = "book-open"
   icon_pack = "fas"
   name = "Research"
@@ -39,10 +45,12 @@ subtitle = ""
   description = ""
 
 [[feature]]
-  icon = "headset"
+  icon = "helicopter"
   icon_pack = "fas"
-  name = "Warzone"
+  name = "Beginner Drone Pilot"
   description = ""
+  
+
 
 
 # Uncomment to use emoji icons.
