@@ -1,5 +1,5 @@
 ---
-bio: My research interests include studying labour markets and their outputs at the individual and local level and predictive models for public policies.
+title: "Javier Fernández"
 education:
   courses:
   - course: MSc in Economics
@@ -8,8 +8,8 @@ education:
   - course: BSc in Economics
     institution: Adolfo Ibáñez University
     year: 2017
-email: ""
-highlight_name: false
+email: ''
+highlight_name: no
 interests:
 - Applied Econometrics
 - Labour Economics
@@ -18,31 +18,25 @@ interests:
 - Predictive Models
 - R programming
 organizations:
-- name: Centre of Economics and Regional Policy
-  url: https://cepr.uai.cl
-role: RA and Admin Assistant
+- name: Center of Applied Business Research
+  url: https://cien.udp.cl/
+role: Researcher
 social:
 - icon: envelope
   icon_pack: fas
   link: /#contact
-#- icon: twitter
-#  icon_pack: fab
-#  link: https://twitter.com/GeorgeCushen
-#- icon: graduation-cap
-#  icon_pack: fas
-#  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
 - icon: github
   icon_pack: fab
   link: https://github.com/jifernandezc
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/javier-fern%C3%A1ndez-5b93191b2/
-superuser: true
-title: Javier Fernández
-user_groups:
-- Principal Investigators
+superuser: yes
+bio: My research interests include studying labor markets and their outputs at the
+  individual and local level and predictive models for public policies.
+user_groups: Principal Investigators
 ---
 
-I am a research assistant and administrative staff at the Centre of Economics and Regional Policy of the Adolfo Ibáñez University. My research interests include studying labor markets and their outputs at the individual and local levels, and predictive models for public policies. My current work is related to the effects of the gender gaps and child penalties in the quality of employment for women in Chile. Moreover, I am design and programming `mRio`, an R package to build and analyze multi-regionalized input-output tables.
+At present, I'm working as a researcher at the Center of Applied Business Research of the Diego Portales University and as a Consultant in Regional Data and Report Designs for the Andrés Bello University. My research interests include labor markets and their outputs at the individual and local levels, the effects of spatially blind policies in Chile, and predictive models for public policies. My current work is related to the effects of the gender gaps and child penalties in the quality of employment for women in Chile.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_JFC_12_2021.pdf" "newtab" >}}CV{{< /staticref >}}.
