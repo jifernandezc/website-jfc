@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Webscraping con R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Javier Fernández" />
+    <meta name="date" content="2024-10-01" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Webscraping con R
+]
+.subtitle[
+## <code>rvest</code>
+]
+.author[
+### <a href="https://jfernandez.netlify.app">Javier Fernández</a>
+]
+.institute[
+### <a href="https://administracionyeconomia.udp.cl/">FAE - Universidad Diego Portales</a>
+]
+.date[
+### 10/01/2024
+]
+
+---
+
+
+background-image: url(https://media1.tenor.com/images/b276ea4cd677ee0957d063b4b200d5d2/tenor.gif?itemid=7921015)
+
+
+
+---
+
+# Hoy veremos...
+
+- Web Scraping
+- Web Scraping en R:
+  - `rvest`
+- Aplicación
+---
+class: inverse, center, middle
+
+# Web ... qué?
+
+---
+
+# Web scraping
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+- .bigl[Web]
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+- .bigl[Scraping] 
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+
+---
+# Web scraping
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+- .bigl[Web] .big[`&lt;-`] .bigl[.red[Web]]
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+- .bigl[Scraping]  
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+---
+# Web scraping
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+- .bigl[Web] .big[`&lt;-`] .bigl[.red[Web]]
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+- .bigl[Scraping] .big[`&lt;-`] .bigl[.red[Raspando]]
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+
+
+Proceso automatizado de extracción de datos de la web.
+
+---
+
+
+# Web scraping
+
+.center[![Fuente: www.grid.cl](https://www.grid.cl/blog/wp-content/uploads/2019/03/001-efficient-web-scraping.png)]
+
+
+.footnote[Source:[grid.cl](https://www.grid.cl/blog/el-web-scraping-que-es-aplicaciones-y-consecuencias/)]
+
+---
+class: inverse, center, middle
+
+# ¿Cómo se ve una página web?
+
+---
+background-image:url(imagenes/webcepr.JPG)
+background-size: 80% 80%
+
+---
+
+class: inverse, center, middle
+
+# ¿Cómo es una página web?
+
+---
+
+background-image:url(imagenes/code.JPG)
+background-size: 80% 80%
+
+---
+
+# Web scraping en R
+
+
+- Existen en R varias estrategias para realizar este proceso
+
+--
+
+  - `RCurl` y `XML`
+
+--
+
+  - `rvest`
+  
+--
+  
+  - `RSelenium`
+
+---
+
+background-image:url(imagenes/rvest.png)
+background-size: 20% 30%
+background-position: center bottom
+# `rvest` 
+
+--
+
+- Forma parte del set de herramientas de tydiverse 
+
+--
+
+- Es bastante sencillo de utilizar
+
+--
+
+- Diseñado para trabajar con nuestro querido `%&gt;%`
+
+--
+
+- Inspirado en librerias como "beautiful soup"
+
+---
+background-image:url(imagenes/rvest.png)
+background-size: 20% 30%
+background-position: center bottom
+# `rvest`
+
+Contiene varias funciones, entre las que destacan:
+
+--
+
+- `read_html()`: Nos permite "ingresar" a una página web.
+
+--
+- `html_element()`: Selecciona la parte/s del documento del que extraeremos información
+
+--
+
+- `html_text2()`: Permite extraer información de un texto
+
+--
+
+- `html_attr()`: Permite extraer información de un atributo
+
+--
+
+- `html_table()`: Extrae una tabla y la convierte en un data.frame
+
+--
+
+Combinando algunas de estas funciones y los `%&gt;%`, podremos extraer datos de un página web.
+
+---
+class: inverse, center, middle
+
+# Cocinando con Javier!
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+--
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+]
+
+---
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear.
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear
+
+- Revisar la política de privacidad de datos del sitio &amp;#128520;
+
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear
+
+- Revisar la política de privacidad de datos del sitio &amp;#128520;
+
+- Revisar el tipo de elemento que queremos scrapear (opcional en un comienzo)
+
+]
+
+---
+
+# Cocinando un buen Web scraping
+
+
+.left-column[
+
+![](imagenes/cocina.gif)
+]
+
+.right-column[
+Ingredientes:
+
+- Un navegador con [SelectorGadget (Chrome)](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) o [Scrape Mate (Firefox)](https://addons.mozilla.org/es/firefox/addon/scrapemate/)
+
+- Un PC con `R y RStudio`
+
+- Una URL que scrapear
+
+Preparación:
+
+- Realizar una inspección visual de la página y los elementos que se quieran scrapear
+
+- Revisar la política de privacidad de datos del sitio &amp;#128520;
+
+- Revisar el tipo de elemento que queremos scrapear (opcional en un comienzo)
+
+- Escribir la línea de código correspondiente en R
+
+]
+
+---
+
+
+class: inverse, middle, center
+
+# Muchas gracias!
+
+---
+
+# Práctica en la cocina
+
+- Realizaremos un trabajo de datos aplicado con 
+  - [Wikipedia - The Mandalorian](https://es.wikipedia.org/wiki/The_Mandalorian)
+
+--
+
+- El objetivo es que puedan utilizar `R` y `rvest` para hacer webscraping.
+
+--
+
+- A la cocina!
+
+--
+
+&lt;div class="rima"&gt;
+  &lt;div class="cima"&gt;
+    &lt;img src="imagenes/grogu.gif" alt="Snow" style="width:120%"&gt;
+  &lt;/div&gt;
+  &lt;div class="cima"&gt;
+    &lt;img src="https://media.tenor.com/images/3f06cfcac4f1a404b8c616dbbeb9227a/tenor.gif" alt="Forest" style="width:120%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

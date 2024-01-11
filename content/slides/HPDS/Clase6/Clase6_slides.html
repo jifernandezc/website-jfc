@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reportería en R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Javier Fernández" />
+    <meta name="date" content="2024-10-01" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Reportería en R
+]
+.subtitle[
+## <a href="https://quarto.org/"><code>Quarto</code></a>
+]
+.author[
+### <a href="https://jfernandez.netlify.app">Javier Fernández</a>
+]
+.institute[
+### <a href="https://administracionyeconomia.udp.cl/">FAE - Universidad Diego Portales</a>
+]
+.date[
+### 10/01/2024
+]
+
+---
+
+
+background-image: url(https://quarto.org/quarto.png)
+background-size: 45% 25%
+
+
+
+---
+class: inverse, center, middle
+
+# Empezamos!
+
+---
+background-image: url(https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/data-science.svg)
+background-size: 100% 100%
+
+# Proceso Recursivo en Ciencia de Datos
+
+---
+# ¿Qué es `Quarto`?
+
+
+- Es un marco de referencia para la ciencia de datos. En esta podemos combinar códigos, resultados y comentarios
+  - Reproducibles
+  - Distintos formatos de salida (pdf, word, ppt, etc)
+
+--
+
+- Es, en su esencia, [multilenguaje (R, Python, Julia, etc)](https://quarto.org/)
+
+--
+
+- En palabras de sus creadores, es el resultado del aprendizaje de 10 años con `rmarkdown`
+
+---
+# ¿Cómo utilizar `Quarto`? 
+
+- Dar click en el símbolo (+) que se encuentra en la esquina superior izquierda y seleccionar Quarto Document
+
+--
+
+- Elegir el tipo de documento
+
+--
+
+- Elegir el tipo de formato
+
+
+--
+
+- Dar click al símbolo knit que se encuentra en la parte superior del “script”.
+---
+
+
+# Estructura de `Quarto` vs `Rmarkdown`
+
+
+- Encabezado YAML (Yet Another Markup Language)
+
+.left[![:scale 40%](imagenes/yaml.png)]
+.left[![:scale 40%](imagenes/yaml_quarto.png)]
+
+--
+
+- Sirve para controlar detalles del output
+
+--
+
+  - title: Título del informe
+  - format: Tipo de archivo en el que queremos compilar nuestro informe. Existen múltiples opciones: html, pdf, word, etc
+
+---
+
+# Estructura de `Quarto` vs `Rmarkdown`
+
+
+--
+
+- Bloques de código (o chunks) de R rodeado de tres comillas
+
+.left[![:scale 40%](imagenes/chunk.png)]
+.left[![:scale 40%](imagenes/chunk_quarto.png)]
+
+
+--
+
+  - Existen 3 formas de insertarlos:
+
+    - Ctrl+Alt+I
+    - Dar click en la parte superior del visor de script en Insert
+    - Escribirlo manualmente
+
+---
+
+# Opciones para los Chunks
+
+--
+
+- `echo: FALSE`: Previene que se Imprima en el output la línea de código asociada a la función que - ejecuta
+- `eval: FALSE`: Evita que el código sea evaluado (o se ejecute)
+- `include: FALSE`: Se ejecuta el código, pero sin mostrar los resultados ni el código en el output
+- `message: FALSE` o `warning: FALSE`: Previene que se impriman en el output mensajes(o warnings) - asociados a la línea de código que ejecuta
+- `error: TRUE`: Se renderiza (o compila) aunque el código devuelva un error
+
+
+---
+
+# Estructura de `Quarto` vs `Rmarkdown`
+
+--
+
+- Texto mezclado con texto simple formateado con # Encabezado e \_itálicas\_
+
+--
+
+.left[![:scale 80%](imagenes/texto.png)]
+.left[![:scale 80%](imagenes/texto_quarto.png)]
+
+--
+
+  - Lo que esté fuera del YAML y de los chunks es texto que será mostrado en nuestro output. Las reglas de formato básicas son las siguientes:
+
+    - Encabezado o títulos y subtítulos:  ###, ## , #
+    - \*cursiva\* ,\*\*negrita\*\* , subindice ~2~ y supraindice^2^
+    - Enlaces web: \[texto a elección\]&lt;www.udp.cl&gt;
+    - Imágenes: \(path/de/la/imagen.jpg\)
+
+---
+
+# Rpubs
+
+--
+
+- Es una plataforma que nos permite publicar nuestros trabajos e informes en Rmarkdown.
+
+
+--
+
+- Para utilizarlo debemos:
+  - Crear una cuenta en http://rpubs.com/users/new
+  - Vincular tu cuenta en Rstudio, haciendo click en el boton en la esquina superior derecha del note script y seleccionar manage accounts.
+
+---
+class: inverse, middle, center
+
+# Muchas gracias!
+
+---
+
+# Laboratorio
+
+- Revisaremos brevemente las principales características, usos y opciones de esta poderosa herramienta
+
+--
+
+- El objetivo es poner en práctica lo que aquí aprendimos
+
+--
+
+- A trabajar!
+
+--
+.center[![](https://media1.tenor.com/images/b276ea4cd677ee0957d063b4b200d5d2/tenor.gif?itemid=7921015)]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
